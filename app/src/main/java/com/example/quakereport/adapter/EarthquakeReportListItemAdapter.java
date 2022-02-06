@@ -10,17 +10,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.quakereport.EarthQuakeReport;
 import com.example.quakereport.R;
+import com.example.quakereport.classes.Earthquake;
 
 import java.util.List;
 
-public class EarthquakeReportListItemAdapter extends ArrayAdapter<EarthQuakeReport> {
+public class EarthquakeReportListItemAdapter extends ArrayAdapter<Earthquake> {
     public EarthquakeReportListItemAdapter(@NonNull Context context, int resource) {
         super(context, resource);
     }
 
-    public EarthquakeReportListItemAdapter(@NonNull Context context, @NonNull List<EarthQuakeReport> objects) {
+    public EarthquakeReportListItemAdapter(@NonNull Context context, @NonNull List<Earthquake> objects) {
         super(context,0, objects);
     }
 
@@ -37,16 +37,16 @@ public class EarthquakeReportListItemAdapter extends ArrayAdapter<EarthQuakeRepo
         }
 
         // get current item on list
-        EarthQuakeReport currentItemOnList = getItem(position);
+        Earthquake currentItemOnList = getItem(position);
 
         // Select the views to be populated
         TextView magnitude = listItemView.findViewById(R.id.tv_magnitude);
         TextView city = listItemView.findViewById(R.id.tv_city);
         TextView date = listItemView.findViewById(R.id.tv_date);
 
-        magnitude.setText(currentItemOnList.getmMagnitude().toString());
-        city.setText(currentItemOnList.getmCity());
-        date.setText(currentItemOnList.getDate());
+        magnitude.setText(currentItemOnList.getMag()+"");
+        city.setText(currentItemOnList.getPlace());
+        date.setText(currentItemOnList.getTime()+"");
 
         return listItemView;
     }
