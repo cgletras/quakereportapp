@@ -62,7 +62,7 @@ public final class QueryUtils {
 
             double magnitude = quakeProperties.optDouble("mag");
             String place = quakeProperties.optString("place");
-            int timeMilliSec = quakeProperties.optInt("time");
+            long timeMilliSec = quakeProperties.optLong("time");
 
             earthquakes.add(i, new Earthquake(magnitude, place, timeMilliSec));
         };

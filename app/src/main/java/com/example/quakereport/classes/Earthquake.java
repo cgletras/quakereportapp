@@ -1,12 +1,15 @@
 package com.example.quakereport.classes;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Earthquake {
 
     double mag;
     String place;
-    int time;
+    long time;
 
-    public Earthquake(double mag, String place, int time) {
+    public Earthquake(double mag, String place, long time) {
         this.mag = mag;
         this.place = place;
         this.time = time;
@@ -28,11 +31,14 @@ public class Earthquake {
         this.place = place;
     }
 
-    public int getTime() {
-        return time;
+    public String getTime() {
+        long timeInMilliseconds = time;
+        Date dateObject = new Date(timeInMilliseconds);
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, yyyy");
+        return dateFormatter.format(dateObject);
     }
 
-    public void setTime(int time) {
+    public void setTime(long time) {
         this.time = time;
     }
 }
