@@ -31,11 +31,8 @@ public class Earthquake {
         this.place = place;
     }
 
-    public String getTime() {
-        long timeInMilliseconds = time;
-        Date dateObject = new Date(timeInMilliseconds);
-        SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, yyyy");
-        return dateFormatter.format(dateObject);
+    public long getTime() {
+        return time;
     }
 
     public void setTime(long time) {

@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 import com.example.quakereport.R;
 import com.example.quakereport.classes.Earthquake;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class EarthquakeReportListItemAdapter extends ArrayAdapter<Earthquake> {
@@ -43,10 +45,25 @@ public class EarthquakeReportListItemAdapter extends ArrayAdapter<Earthquake> {
         TextView magnitude = listItemView.findViewById(R.id.tv_magnitude);
         TextView city = listItemView.findViewById(R.id.tv_city);
         TextView date = listItemView.findViewById(R.id.tv_date);
+        TextView time = listItemView.findViewById(R.id.tv_time);
 
+        // Populate views and convert time values from milliseconds to date and time
+        //Populate MAG
         magnitude.setText(currentItemOnList.getMag()+"");
+
+        // Populate Location
         city.setText(currentItemOnList.getPlace());
-        date.setText(currentItemOnList.getTime()+"");
+
+        // Populate and convert DATE
+        Date dateObject = new Date(currentItemOnList.getTime());
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, yyyy");
+        String dateToDisplay = dateFormatter.format(dateObject);
+        date.setText(dateToDisplay);
+
+        // Populate and convert TIME
+        SimpleDateFormat timeFormatter = new SimpleDateFormat("KK:mm aa");
+        String timeToDisplay = timeFormatter.format(dateObject);
+        time.setText(timeToDisplay);
 
         return listItemView;
     }
