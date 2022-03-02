@@ -1,18 +1,25 @@
 package com.example.quakereport.classes;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class Earthquake {
 
     double mag;
     String place;
     long time;
+    String url;
 
-    public Earthquake(double mag, String place, long time) {
+    public Earthquake(double mag, String place, long time, String url) {
         this.mag = mag;
         this.place = place;
         this.time = time;
+        this.url = url;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public double getMag() {
